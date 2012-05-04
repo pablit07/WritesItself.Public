@@ -1,0 +1,13 @@
+
+/* Classes only
+	try to make selectors as generic as possible
+*/
+
+/* position */
+.fleft {float: left;}
+.fright {float: right;}
+.offscreen {top: -1000px; left: -1000px;}
+.fullscreen {position:absolute;top:0;right:0;bottom:0;left:0;}
+
+.strong {font-weight:bold;}
+.italic {font-style:italic;}

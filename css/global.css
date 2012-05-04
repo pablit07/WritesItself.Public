@@ -1,0 +1,71 @@
+
+body {
+	background-color: black;
+
+	font: 11px;
+}
+
+h1
+{
+	font-size: 14px;
+	color: white;
+}
+
+p
+{
+	padding: 5px;
+}
+
+li
+{
+	cursor: pointer;
+}
+
+/* jPlayer */
+#jPlayer {position:fixed;}
+
+/* Breathing Background */
+
+#Breathing {
+	background-color: black;
+	display: none;
+}
+
+#Breathing img.Breathing {
+	height: 100%;
+	width: 100%;
+}
+
+/* content */
+
+#container {
+	display: none;
+	background-color: black;
+	opacity: 0.86;
+
+	position: absolute;
+	left: 40%;
+
+	height: 66%;
+	width: 40%;
+	top: 10%;
+	left: 33%;
+	min-width: 200px;
+
+	padding: 10px;
+
+	color: white;
+
+	z-index: 3;
+}
+
+
+/* cloak */
+#cloak {
+	display: none;
+	z-index:2;
+	border-top: 40px solid black;
+	border-right: 30px solid black;
+	border-bottom: 40px solid black;
+	border-left: 30px solid black;
+}
