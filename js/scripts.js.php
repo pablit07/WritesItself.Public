@@ -12,8 +12,8 @@
 
 	/* GLobal Server Vars */
 
-	echo "Page.prototype.domain = 'http://". $_SERVER['HTTP_HOST']."';";
-	echo "Page.prototype.root = 'http://".$_SERVER['HTTP_HOST']."' + '/WritesItself/BandSite/';";
+	echo "Page.prototype.domain = window.location.host;";
+	echo "Page.prototype.root = window.location.host + (window.location.host=='localhost'? '/WritesItself/BandSite/' : '/');";
 	
 ?>
 
