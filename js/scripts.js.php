@@ -1,9 +1,10 @@
 <?php
-	
+	define("DS", "Windows" === PHP_OS? "\\" : "/");
+
 	header("Content-type: text/javascript");
 
 	/* libs */
-	echo file_get_contents("libs\jQuery.jPlayer.2.1.0\jquery.jplayer.min.js");
+	echo file_get_contents("libs".DS."jQuery.jPlayer.2.1.0".DS."jquery.jplayer.min.js");
 
 	/* includes - js files */
 
