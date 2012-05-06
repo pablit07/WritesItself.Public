@@ -10,12 +10,8 @@ if (!window.console) {
 	window.console.error = function() {};
 }
 
-/* overall page level stuff */
-var Page = function() {};
-
 Page.prototype.init = function() {
 
-	this.attachBreathing($("#Breathing"));
 	this.attachjPlayer($("#jPlayer"));
 
 	this.attachDomEvents();
@@ -44,15 +40,12 @@ Page.prototype.runHash = function() {
 Page.prototype.attachBreathing = function($parent) {
 
 	this.$breathing_el = $('<img src="img/backgrounds/breathing.png" class="Breathing" />');
-	this.$breathing_el.appendTo($parent);
 
-	// do fade in effect after image has loaded
-	this.$breathing_el.load(function() {
-		setTimeout(function() {
-			$parent.fadeIn(1000, function() {
-				$parent.trigger('loadBackground');
-			});
-		}, 1000);
+	var self = this;
+
+	self.$breathing_el.appendTo($parent);
+	$parent.fadeIn(500, function() {
+		$parent.trigger('loadBackground');
 	});
 
 	var colors = ["#00bb33", "#FFD900", "#BB20E6", "#E62020", "#2055E6"];

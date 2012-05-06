@@ -17,7 +17,6 @@
 	
 ?>
 
-if (typeof Page == 'function') {
-	var page = new Page();
+if (window.page) {
 	page.init();
 }
