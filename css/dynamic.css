@@ -1,7 +1,37 @@
 
 /* Breathing animation */
-#Breathing {
+.breathing {
 	-moz-transition: background-color 6s linear;
 	-webkit-transition: background-color 6s linear;
 	transition: background-color 6s linear;
+}
+
+.fade2s {
+	display: block;
+    -moz-transition: opacity 2s cubic-bezier(1,1,0,0);
+    -webkit-transition: opacity 2s cubic-bezier(1,1,0,0);
+    transition: opacity 2s cubic-bezier(1,1,0,0);
+}
+
+.fade3s {
+    -moz-transition: opacity 3s cubic-bezier(1,1,0,0);
+    -webkit-transition: opacity 3s cubic-bezier(1,1,0,0);
+    transition: opacity 3s cubic-bezier(1,1,0,0);
+}
+
+.fade5s {
+    -moz-transition: opacity 5s cubic-bezier(1,1,0,0);
+    -webkit-transition: opacity 5s cubic-bezier(1,1,0,0);
+    transition: opacity 5s cubic-bezier(1,1,0,0);
+}
+
+
+.fade_out {
+	opacity: 0;
+}
+.no-csstransitions .fade_out {
+	opacity: 1;
+}
+.fade_in {
+	opacity: 1;
 }

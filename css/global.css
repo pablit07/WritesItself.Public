@@ -28,6 +28,9 @@ li
 
 #Breathing {
 	background-color: black;
+}
+
+.no-csstransitions #Breathing {
 	display: none;
 }
 

@@ -24,7 +24,7 @@ Page.prototype.init = function() {
 Page.prototype.runHash = function() {
 	var hash = window.location.hash;
 	hash = hash.substr(1, hash.length-1);
-	console.info(hash);
+	console.info("hash", hash);
 	if (!hash) { return false; }
 
 	var actionIndex = hash.indexOf(" ");
@@ -37,6 +37,15 @@ Page.prototype.runHash = function() {
 
 };
 
+Page.prototype.isIE = function() {
+	return /MSIE/.test(window.navigator.userAgent);
+}
+
+Page.prototype.hasTransitions = function() {
+	return $("html").hasClass("csstransitions");
+}
+
+
 Page.prototype.attachBreathing = function($parent) {
 
 	this.$breathing_el = $('<img src="img/backgrounds/breathing.png" class="Breathing" />');
@@ -44,9 +53,26 @@ Page.prototype.attachBreathing = function($parent) {
 	var self = this;
 
 	self.$breathing_el.appendTo($parent);
-	$parent.fadeIn(500, function() {
-		$parent.trigger('loadBackground');
-	});
+	
+	var fadeIn;
+	if(!this.hasTransitions()) {
+	
+		fadeIn = function($parent, t) {
+			$parent.fadeIn(t);
+		};
+
+	} else {
+
+		fadeIn = function($parent, t) {
+			$parent.removeClass("fade_out");
+			setInterval(function() {
+				$parent.removeClass("fade2s");
+				$parent.addClass("breathing");
+			}, t);
+		};		
+	}
+	
+	fadeIn($parent, 2000);
 
 	var colors = ["#00bb33", "#FFD900", "#BB20E6", "#E62020", "#2055E6"];
 	var i = 0;
@@ -95,7 +121,7 @@ Page.prototype.urlEncode = function(url) {
 	return url.replace(' ', '%20');
 };
 Page.prototype.getMp3Url = function(name) {
-	return this.root + "audio/" + this.urlEncode(name) + '.mp3';
+	return "audio/" + this.urlEncode(name) + '.mp3';
 };
 
 Page.prototype.audio_play = function(param) {
@@ -138,11 +164,6 @@ Page.prototype.attachDomEvents = function() {
 
 		self.runAction(action, $el);	
 	});
-/*
-	$("#Breathing").on('loadBackground', function() {
-		
-	});
-*/
 };
 
 Page.prototype.runAction = function(action, $el) {
