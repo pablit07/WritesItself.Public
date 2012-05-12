@@ -1,0 +1,24 @@
+/* ball.css */
+body {
+	background-color: #444;
+}
+div.ball {
+	background-color: black;
+	position: fixed;
+
+	height: 200px;
+	width: 200px;
+
+	top: 0;
+	left: 0;
+}
+
+div.counter {
+	position: fixed;
+	height: 200px;
+	width: 400px;
+
+	bottom: 0;
+	right: 0;
+	background-color: #ccc;
+}
