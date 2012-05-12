@@ -16,6 +16,7 @@ Page.prototype.init = function() {
 
 	this.attachDomEvents();
 	this.fadeInContent();
+	this.attachBubble();
 
 	this.runHash();
 
@@ -85,6 +86,23 @@ Page.prototype.attachBreathing = function($parent) {
 
 	this.animate_start();
 }
+
+Page.prototype.attachBubble = function() {
+	var $B = $("#Bubble");
+	var $b = $("img.bubble");
+
+	$B.bouncingBall();
+
+	$(".innerBubble").mouseout(function() {
+	    $b.removeClass("big");
+	    $B.unpause();
+	});
+
+	$(".innerBubble").mouseover(function() {
+	    $b.addClass('big');
+	    $B.pause();
+	});
+};
 
 Page.prototype.animate_start = function() {
 	if (this.breathingAnimationTaskId != null) { return false; } //only run once

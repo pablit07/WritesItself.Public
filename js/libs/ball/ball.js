@@ -126,10 +126,10 @@
 			var checkBoundary = function(pos) {
 
 				var walls = [
-					{ pos: {x:400}},
-					{ pos: {x:2}},
+					{ pos: {x:500}},
+					{ pos: {x:-100}},
 					{ pos: {y:2}},
-					{ pos: {y:400}}
+					{ pos: {y:500}}
 				];
 
 				for (var i = 0; i < walls.length; i++) {

@@ -8,7 +8,9 @@
 
 	/* includes - js files */
 
+	echo file_get_contents("libs".DS."ball".DS."ball.js");
 	echo file_get_contents("script.js");
+	echo file_get_contents("libs".DS."jquery-firefly-0.1.js");
 
 	/* GLobal Server Vars */
 
