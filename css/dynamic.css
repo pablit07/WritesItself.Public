@@ -7,7 +7,6 @@
 }
 
 .fade2s {
-	display: block;
     -moz-transition: opacity 2s cubic-bezier(1,1,0,0);
     -webkit-transition: opacity 2s cubic-bezier(1,1,0,0);
     transition: opacity 2s cubic-bezier(1,1,0,0);
@@ -19,10 +18,10 @@
     transition: opacity 3s cubic-bezier(1,1,0,0);
 }
 
-.fade5s {
-    -moz-transition: opacity 5s cubic-bezier(1,1,0,0);
-    -webkit-transition: opacity 5s cubic-bezier(1,1,0,0);
-    transition: opacity 5s cubic-bezier(1,1,0,0);
+.fade1s {
+    -moz-transition: opacity 1s cubic-bezier(1,1,0,0);
+    -webkit-transition: opacity 1s cubic-bezier(1,1,0,0);
+    transition: opacity 1s cubic-bezier(1,1,0,0);
 }
 
 

@@ -9,5 +9,7 @@
 .offscreen {top: -1000px; left: -1000px;}
 .fullscreen {position:absolute;top:0;right:0;bottom:0;left:0;}
 
+.ib { display: inline-block;}
+
 .strong {font-weight:bold;}
 .italic {font-style:italic;}

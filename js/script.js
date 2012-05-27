@@ -18,6 +18,8 @@ Page.prototype.init = function() {
 	this.fadeInContent();
 	this.attachBubble();
 
+	//$.firefly();
+
 	this.runHash();
 
 }
@@ -32,9 +34,9 @@ Page.prototype.runHash = function() {
 	if (actionIndex == -1) { actionIndex = hash.length; }
 
 	var action = hash.substr(0, actionIndex);
-	var rest = hash.substr(actionIndex + 1, hash.length - 1);
+	var params = hash.substr(actionIndex + 1, hash.length - 1);
 
-	this.runAction(action, rest);
+	this.runAction(action, params);
 
 };
 
@@ -89,6 +91,7 @@ Page.prototype.attachBreathing = function($parent) {
 
 Page.prototype.attachBubble = function() {
 	var $B = $("#Bubble");
+	this.$Bubble = $B;
 	var $b = $("img.bubble");
 
 	$B.bouncingBall();
@@ -164,6 +167,10 @@ Page.prototype.audio_stop = function() {
 	this.$jPlayer.jPlayer('setMedia', {}).jPlayer('play');
 };
 
+Page.prototype.bubble_pause = function() {
+	this.$Bubble.pause();
+};
+
 Page.prototype.attachDomEvents = function() {
 	var $delegate = $('#container');
 
@@ -196,7 +203,8 @@ Page.prototype.runAction = function(action, $el) {
 
 Page.prototype.fadeInContent = function() {
 	setTimeout(function() {
-		$("#container").fadeIn(1000);
-		$("#cloak").fadeIn(1000);
+		//$("#container").fadeIn(1000);
+		$("div#cloak").fadeIn(1000);
+		//$("div#cloak").fadeIn(1000);
 	}, 1000);
 };
