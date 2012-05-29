@@ -24,8 +24,8 @@
 			console.info($ball);
 
 			var ball = {
-				x:3,
-				y:3,
+				x:20,
+				y:60,
 				$ball: $ball,
 				getLeft: function() {
 					return this.x;
@@ -126,10 +126,10 @@
 			var checkBoundary = function(pos) {
 
 				var walls = [
-					{ pos: {x:500}},
-					{ pos: {x:-100}},
-					{ pos: {y:-100}},
-					{ pos: {y:500}}
+					{ pos: {x:1000}},
+					{ pos: {x:-10}},
+					{ pos: {y:50}},
+					{ pos: {y:600}}
 				];
 
 				for (var i = 0; i < walls.length; i++) {
@@ -155,15 +155,18 @@
 			var timer = setInterval(move, 39);
 
 		});
+		return this;
 	};
 	$.fn.pause = function() {
 		this.each(function(i,e) {
 			this.pause();
 		});
+		return this;
 	};
 	$.fn.unpause = function() {
 		this.each(function(i,e) {
 			this.unpause();
 		});
+		return this;
 	};
 })($);

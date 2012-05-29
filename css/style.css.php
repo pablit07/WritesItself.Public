@@ -10,8 +10,13 @@ header('Content-type: text/css');
   /* css includes here */
   echo file_get_contents("boilerplate.css");
   echo file_get_contents("shorthand.css");
+  
   echo file_get_contents("global.css");
   echo file_get_contents("dynamic.css");
+  echo file_get_contents("toolbar.css");
+
+  echo file_get_contents("magnify.css");
+
 
 	/* css style generator */
 ?>

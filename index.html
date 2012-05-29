@@ -23,21 +23,96 @@
 
 <div id="Breathing" class="fullscreen fade_out fade2s"></div>
 <div id="jPlayer" class="offscreen"></div>
-<div id="cloak" class="header"><div>Writes Itself</div></div>
-<div id="cloak" class="footer"><div></div>
+
+<div id="cloak" class="header toolbar">
+	<div class="fleft title">
+		<a class="middle" href="#">Writes Itself</a>
+	</div>
+	<ul class="fleft player">
+		<li>
+			<a class="middle prev" href="#"><span></span></a>
+		</li>
+		<li>
+			<a class="middle play" href="#"><span></span></a>
+		</li>
+		<li>
+			<a class="middle next" href="#"><span></span></a>
+		</li>
+		<li>
+			<a class="top lcd">
+				<input type="text" readonly="readonly" value=">> Waiting.mp3"></input>
+			</a>
+		</li>
+		<li>
+			<a class="middle playlist" href="#"><span></span></a>
+		</li>
+	</ul>
+
+	<div class="fright banner">
+		<div class="">
+			<a class="middle">
+				<input type="text" readonly="readonly" value="Sign up for the mailing list"></input>
+			</a>
+		</div>
+	</div>
 </div>
 
-<div id="Bubble" class="">
-    <img class="bubble" src="img/Bubble.png" />
-    <div class="innerBubble bubble">&nbsp;</div>
- 
- 	<nav>
-    	<ul>
-    		<li>Home</li>
-    		<li>Music</li>
-    		<li>Contact</li>
-		</ul>
-	</nav>
+<div id="cloak" class="footer toolbar">
+
+	<div class="fleft email">
+		<div class="fleft">
+			<a class="middle">
+				<input type="text" value="add your email to our mailing list"></input>
+			</a>
+		</div>
+		<div class="fleft">
+			<a class="middle">
+				<button>Add to Mailing List</button>
+			</a>
+		</div>
+	</div>
+
+	<ul class="center contact">
+		<li>
+			<a class="middle" href="#">Contact Us</a>
+		</li>
+	</ul>
+
+	<ul class="fright social">
+		<li>
+			<a class="middle" href="#">
+				<div class="icon">youtube</div>
+			</a>
+		</li>
+		<li>
+			<a class="middle" href="#">
+				<div class="icon">facebook</div>
+			</a>
+		</li>
+		<li>
+			<a class="middle" href="#">
+				<div class="icon">twitter</div>
+			</a>
+		</li>
+	</ul>
+
+</div>
+
+<div id="Bubble" class="big">
+	<div class="outerBubble bubble">
+	    <img class="bubble" src="img/Bubble.png" />
+	    <div class="innerBubble">
+	    	<nav>
+				<a class="first" href="#">fans</a>
+				<a href="#">clubs</a>
+				<a href="#">artists</a>
+				<a href="#">promoters</a>
+				<a href="#">sponsers</a>
+				<a href="#">listeners</a>
+				<a class="last" href="#">help wanted</a>
+			</nav>
+	    </div>
+    </div>
 </div>
 
 	<div id="container">
@@ -50,9 +125,9 @@
 			</p>
 			<p>
 				<ul>
-					<li> <a data-file="Writes Itself-Just One Look" data-action="audio_play">Writes Itself-Just One Look</a> </li>
-					<li> <a data-file="Writes Itself-Waiting" data-action="audio_play">Writes Itself-Waiting</a> </li>
-					<li> <a data-action="audio_stop" data-action-two="animate_stop">stop.</a> </li>
+					<li> <a href="#audio_play Writes Itself-Just One Look" data-file="Writes Itself-Just One Look" data-action="audio_play">Writes Itself-Just One Look</a> </li>
+					<li> <a href="#audio_play Writes Itself-Waiting" data-file="Writes Itself-Waiting" data-action="audio_play">Writes Itself-Waiting</a> </li>
+					<li> <a href="#audio_stop" data-action="audio_stop" data-action-two="animate_stop">stop.</a> </li>
 				</ul>
 			</p>
 
@@ -66,8 +141,8 @@
 		</footer>
 	</div> <!--! end of #container -->
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
 <script src="js/scripts.js.php"></script>
 

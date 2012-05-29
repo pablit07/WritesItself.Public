@@ -29,96 +29,7 @@ li
 	list-style-type: none;
 	display: inline-block;
 }
-body {
-	background-color: #aaa;
-}
-.toolbar {
-	background-image: -moz-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
-	background-image: -webkit-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
-	background-image: -ms-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
-	background-image: -o-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
-	box-shadow:  0 3px 5px rgba(0, 0, 0, 0.5), inset 0 0 8px rgba(255,255,255, 0.75);
-	filter:
-		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#090909'),
-		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#333333',GradientType=0 );
 
-    min-width: 980px;
-    position: relative;
-    width: 100%;
-    z-index: 100;
-	height: 50px;
-}
-.toolbar * {
-	height: 100%;
-}
-.toolbar .top {	display: table-cell; vertical-align: top; }
-.toolbar .middle {	display: table-cell; vertical-align: middle; }
-.toolbar .bottom {	display: table-cell; vertical-align: bottom; }
-.toolbar .center { position: absolute; left: 33%; width: 33%; text-align: center;}
-.toolbar .icon { height: 16px; width: 16px; 
-	background-color: blue;
-	filter:
-		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#090909')
-
-}
-.toolbar input {
-	behavior: url(../css/PIE.htc);
-	border: 1px solid #333333;
-	border-radius: 5px;
-	height: 20px;
-	line-height: 18px;
-	padding: 0px 8px;
-	background-color: #dedede;
-	color: #6C6E80;
-	font-weight: bold;
-	width: 196px;
-	text-align: center;
-	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0, 0.25);
-	cursor: pointer;
-}
-.toolbar input[readonly] {
-	background-color: #333333;
-	color: #dedede;
-	font-size: 13px;
-	height: 30px;
-	line-height: 25px;
-	border: 1px solid #1A1A1A;
-	border-top-color: #090909;
-	border-bottom-color: #565656;
-	width: 250px;
-}
-.toolbar button { height: 22px; margin: 0 4px; background-color: #dedede;}
-.header {
-    border-bottom: 1px solid #090909;
-    
-}
-
-.footer {
-    border-top: 1px solid #090909;
-    position: fixed;
-    bottom: 0;
-}
-.toolbar a {
-    color: #AAAAAA;
-    display: inline-block;
-    height: 45px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
-}
-.toolbar .banner {
-	margin-right:20px;
-}
-.toolbar .email { margin-left: 20px;}
-.toolbar .social li { margin-right: 20px;}
-.toolbar .player a { padding-top: 4px; }
-.toolbar .player a span { width: 36px; height: 36px; display: inline-block; margin-left: 2x;}
-.toolbar .player a.play span,
-.toolbar .player a.pause span{ background: url(../img/pause_play.png) 0 0 no-repeat;}
-.toolbar .player a.prev span,
-.toolbar .player a.next span{ background: url(../img/prev_next.png) 0 0 no-repeat; width: 29px; height: 30px;}
-.toolbar .player a.play span { background-position: 0px -111px;}
-.toolbar .player a.pause span { background-position: 0px 0px;}
-.toolbar .player a.prev span { background-position: 0px 0px;}
-.toolbar .player a.next span { background-position: 0px -123px;}
 /* jPlayer */
 #jPlayer {position:fixed;}
 
@@ -162,51 +73,74 @@ body {
 
 /* cloak */
 #cloak {
-	xdisplay: none;
-	z-index:2;
+	display: none;
+	z-index:50;
 }
 #Bubble {
 	height: 400px;
     width: 400px;
     position: absolute;
-    text-align: center;
+    left: 20px; top: 60px;
     z-index: 3;
+    font-size: 17px;
+    display: none;
+}
+.innerBubble a {
+	display: block;
+	cursor: pointer;
+	padding-right: 70px; margin-right: -70px;
+	color: #551A8B;
+}
+#Bubble.big .innerBubble {
+	position: absolute;
+	left: 25px;
+	right: 25px;
+	top: 17px;
+	bottom: 25px;
+	height: 350px;
 }
 
+#Bubble .outerBubble {
+	behavior: url(css/PIE.htc);
+	position: absolute;
+	height: 200px;
+	width: 200px;
+    border-radius: 75%;
+    background-color: transparent;
+    z-index: 400;
+
+}
+#Bubble.big .outerBubble {
+	behavior: url(css/PIE.htc);
+	height: 400px;
+	width: 400px;
+	border-radius: 100%;
+	background-color: #fff;
+}
+img.bubble {
+	left: 50px;
+    height: 50%;
+    width: 50%;
+}
+
+#Bubble .innerBubble {
+	position: absolute;
+	left: 0px;
+	height: 0;
+	padding-top: 30px;
+}
 .bubble {
 	position: absolute;
-    left: 50px;
-    right: 50px;
-    top: 50px;
-    bottom: 50px;
-    height: 75%;
-    width: 75%;
-    -webkit-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms;
-    -moz-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms;
-    -ms-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms;
-    transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms;
+    -webkit-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
+    -moz-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
+    -ms-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
+    transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
 }
-
-.bubble.big {
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
+#Bubble.big img.bubble {
+    left: -20px;
+    top: -20px;
+    width: 110%;
+    height: 110%;
 }
-.bubble.innerBubble {
-	z-index: 400;
-}
-
-nav {
-	display: inline-block;
-	position: relative;
-	top: 50%;
-	margin-top: -25%;
-}
-
-nav ul {
-	color: #ccc;
-}
-
+#Bubble nav { visibility: hidden;}
+#Bubble.big nav { visibility: visible;}

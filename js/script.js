@@ -12,7 +12,7 @@ if (!window.console) {
 
 Page.prototype.init = function() {
 
-	this.attachjPlayer($("#jPlayer"));
+	this.attachjPlayer($("#jPlayer"), $("div.toolbar ul.player"));
 
 	this.attachDomEvents();
 	this.fadeInContent();
@@ -21,6 +21,8 @@ Page.prototype.init = function() {
 	//$.firefly();
 
 	this.runHash();
+	// Do we want to check for hash changes?
+	//window.onhashchange = $.proxy(this.runHash, this);
 
 }
 
@@ -36,7 +38,7 @@ Page.prototype.runHash = function() {
 	var action = hash.substr(0, actionIndex);
 	var params = hash.substr(actionIndex + 1, hash.length - 1);
 
-	this.runAction(action, params);
+	this.runAction(action, params, true);
 
 };
 
@@ -94,15 +96,23 @@ Page.prototype.attachBubble = function() {
 	this.$Bubble = $B;
 	var $b = $("img.bubble");
 
-	$B.bouncingBall();
+	//start state = stopped
+	$B.bouncingBall().pause();
 
-	$(".innerBubble").mouseout(function() {
-	    $b.removeClass("big");
+	this.$B_inner = $(".innerBubble", $B);
+	this.$B_outer = $(".outerBubble", $B);
+
+	$("div#Bubble").fadeIn(1000);
+	//must go after
+	this.$B_inner.magnification();
+
+	this.$B_outer
+	.mouseleave(function() {
+	    $B.removeClass("big");
 	    $B.unpause();
-	});
-
-	$(".innerBubble").mouseover(function() {
-	    $b.addClass('big');
+	})
+	.mouseover(function() {
+	    $B.addClass('big');
 	    $B.pause();
 	});
 };
@@ -117,32 +127,20 @@ Page.prototype.animate_stop = function() {
 	this.breathingAnimationTaskId = null;
 };
 
-Page.prototype.attachjPlayer = function($parent) {
-	if (!$.fn.jPlayer) { console.info("jPlayer not installed"); return false; } // ensure plugin is installed
+Page.prototype.attachjPlayer = function($parent, $interface) {
+	if (typeof jPlayer != 'function') { console.info("jPlayer class not found"); return false; } // ensure plugin is installed
 
-	var options = {};
+	var options = {
+		songs: [
+			"Writes Itself-Just One Look"
+		]
+	};
 
-	//TODO add options here
-
-	$parent.jPlayer(options);
-
-	this.$jPlayer = $parent;
-	var self = this;
-
-	// loop over all audio play tags & generate href
-	$("a[data-audio-url][data-audio-url!='']").each(function(i) {
-		$el = $(this);
-		var descr = "#" + ($el.data('action')||"") + " " + ($el.data('file')||"");
-		$el.attr("href", descr);
-	});
-	
+	this.jPlayer = new jPlayer($parent, $interface, options);
 };
 
 Page.prototype.urlEncode = function(url) {
-	return url.replace(' ', '%20');
-};
-Page.prototype.getMp3Url = function(name) {
-	return "audio/" + this.urlEncode(name) + '.mp3';
+	return Common.urlEncode(url);
 };
 
 Page.prototype.audio_play = function(param) {
@@ -154,17 +152,14 @@ Page.prototype.audio_play = function(param) {
 		var name = param.data('file');
 	}
 
-	var options = {
-		mp3: this.getMp3Url(name)
-	}
-	
-	console.info(options);
-
-	this.$jPlayer.jPlayer('setMedia', options).jPlayer('play');
+	this.jPlayer.play(name);
 };
 
 Page.prototype.audio_stop = function() {
-	this.$jPlayer.jPlayer('setMedia', {}).jPlayer('play');
+	this.jPlayer.stop()
+};
+Page.prototype.audio_pause = function() {
+	this.jPlayer.pause()
 };
 
 Page.prototype.bubble_pause = function() {
@@ -172,7 +167,15 @@ Page.prototype.bubble_pause = function() {
 };
 
 Page.prototype.attachDomEvents = function() {
-	var $delegate = $('#container');
+	var self = this;
+
+	$("#cloak")
+		.on('click', 'ul.player a.play', function() { self.audio_play();})
+		.on('click', 'ul.player a.pause', function() { self.audio_pause();})
+	;
+
+
+	var $delegate = $('#container, #Bubble');
 
 	var self = this;
 
@@ -182,16 +185,9 @@ Page.prototype.attachDomEvents = function() {
 
 		self.runAction(action, $el);		
 	});
-
-	$delegate.on('click', 'a[data-action-two]', function(i) {
-		var $el = $(this);
-		var action = $el.data('action-two');
-
-		self.runAction(action, $el);	
-	});
 };
 
-Page.prototype.runAction = function(action, $el) {
+Page.prototype.runAction = function(action, $el, isFromHash) {
 	if (action == 'runAction') { return; }
 
 	if (typeof this[action] == 'function') {
@@ -205,6 +201,7 @@ Page.prototype.fadeInContent = function() {
 	setTimeout(function() {
 		//$("#container").fadeIn(1000);
 		$("div#cloak").fadeIn(1000);
-		//$("div#cloak").fadeIn(1000);
+
+		
 	}, 1000);
 };

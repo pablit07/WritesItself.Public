@@ -1,0 +1,12 @@
+
+.bubbleItem { position: relative; right: 0px; text-align: right; line-height: 39px; }
+.once { font-size:23px; }
+.twice { font-size:29px; }
+.thrice { font-size:39px; font-weight: bold;}
+
+.bubbleItem {
+	-webkit-transition: font-size 200ms;
+    -moz-transition: font-size 200ms;
+    -ms-transition: font-size 200ms;
+    transition: font-size 200ms;
+}
