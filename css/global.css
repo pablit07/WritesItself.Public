@@ -76,6 +76,8 @@ li
 	display: none;
 	z-index:50;
 }
+
+/* Bubble */
 #Bubble {
 	height: 400px;
     width: 400px;
@@ -85,11 +87,17 @@ li
     font-size: 17px;
     display: none;
 }
-.innerBubble a {
+.innerBubble nav li {
 	display: block;
 	cursor: pointer;
+}
+.innerBubble nav li a {
+	display: block;
 	padding-right: 70px; margin-right: -70px;
 	color: #551A8B;
+}
+.innerBubble nav li ul {
+	display: none;
 }
 #Bubble.big .innerBubble {
 	position: absolute;
@@ -117,12 +125,17 @@ li
 	border-radius: 100%;
 	background-color: #fff;
 }
-img.bubble {
+#Bubble img.bubble {
 	left: 50px;
     height: 50%;
     width: 50%;
 }
-
+#Bubble.big img.bubble {
+    left: -20px;
+    top: -20px;
+    width: 110%;
+    height: 110%;
+}
 #Bubble .innerBubble {
 	position: absolute;
 	left: 0px;
@@ -136,11 +149,6 @@ img.bubble {
     -ms-transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
     transition: width 500ms, height 500ms, left 500ms, right 500ms, top 500ms, bottom 500ms, background-color 800ms;
 }
-#Bubble.big img.bubble {
-    left: -20px;
-    top: -20px;
-    width: 110%;
-    height: 110%;
-}
+
 #Bubble nav { visibility: hidden;}
 #Bubble.big nav { visibility: visible;}

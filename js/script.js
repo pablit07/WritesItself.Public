@@ -104,7 +104,7 @@ Page.prototype.attachBubble = function() {
 
 	$("div#Bubble").fadeIn(1000);
 	//must go after
-	this.$B_inner.magnification();
+	this.$B_inner.magnification('li');
 
 	this.$B_outer
 	.mouseleave(function() {
@@ -132,7 +132,8 @@ Page.prototype.attachjPlayer = function($parent, $interface) {
 
 	var options = {
 		songs: [
-			"Writes Itself-Just One Look"
+			 "Writes Itself-Just One Look"
+			,"Writes Itself-Waiting"
 		]
 	};
 
@@ -161,6 +162,12 @@ Page.prototype.audio_stop = function() {
 Page.prototype.audio_pause = function() {
 	this.jPlayer.pause()
 };
+Page.prototype.audio_next = function() {
+	this.jPlayer.next()
+};
+Page.prototype.audio_prev = function() {
+	this.jPlayer.prev()
+};
 
 Page.prototype.bubble_pause = function() {
 	this.$Bubble.pause();
@@ -169,9 +176,12 @@ Page.prototype.bubble_pause = function() {
 Page.prototype.attachDomEvents = function() {
 	var self = this;
 
-	$("#cloak")
-		.on('click', 'ul.player a.play', function() { self.audio_play();})
-		.on('click', 'ul.player a.pause', function() { self.audio_pause();})
+	//player
+	$("#cloak ul.player")
+		.on('click', 'a.play', function() { self.audio_play();})
+		.on('click', 'a.pause', function() { self.audio_pause();})
+		.on('click', 'a.next', function() { self.audio_next();})
+		.on('click', 'a.prev', function() { self.audio_prev();})
 	;
 
 

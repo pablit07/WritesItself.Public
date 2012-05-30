@@ -8,13 +8,31 @@ var jPlayer = function($parent, $interface, options) {
 	options = options || {};
 	var self = this;
 
-	//TODO add options here
+	// add options below
+
+	//add time update event
 	options.timeupdate = $.proxy(this.timeUpdate, this);
+	//add song end event
+	options.ended = function() { self.t = 0; self.next(); }
 
 	$parent.jPlayer(options);
 
 	this.$jPlayer = $parent;
 	this.$interface = $interface;
+
+	this.attachListeners();
+
+	this.setState("stopped");
+
+	this.clearQ();
+
+	if (options.songs) {
+		this.q = options.songs;
+	}
+};
+
+jPlayer.prototype.attachListeners = function() {
+	var self = this;
 
 	//play button event listener
 	this.$("play,pause").bind('update', function() { 
@@ -30,45 +48,22 @@ var jPlayer = function($parent, $interface, options) {
 	//lcd event listener
 	this.$("lcd").bind('update', function() { 
 			//update time
+		var s =	Math.round(self.t);
+		var m = Math.floor(s / 60);
+		s = s % 60;
 
-var minutes=1000*60;
-var hours=minutes*60;
-var days=hours*24;
-var years=days*365;
-var t=new Date(self.getTime()).getTime()
+		if (s < 10) { s = "0" + s; }
 
-var y=Math.round(t/years);
-var m=(t/minutes);
-var s=Math.round(m*60);
-
-
-		$(this).find('input').val(s);
+		$(this).find('input').val(m+":"+s);
 	});
-
-
-
-	this.setState("stopped");
-
-	this.clearQ();
-
-	if (options.songs) {
-		this.q = options.songs;
-	}
 };
 
-jPlayer.prototype.timeUpdate = function(time) {
-	//console.info(time);
-	this.setTime(time);
+jPlayer.prototype.timeUpdate = function(e) {
+	//console.info(e);
+	if (!e.jPlayer || !e.jPlayer.status || !e.jPlayer.status.currentTime) { return; }
+
+	this.t = e.jPlayer.status.currentTime;
 	this.$("lcd").trigger("update");
-}
-jPlayer.prototype.setTime = function(time) {
-	if (this.t > 0) {
-		this.t_d = time.timeStamp - this.t;
-	} else {
-			//first time
-		this.t = time.timeStamp;
-		this.t_d = 0;
-	}	
 }
 jPlayer.prototype.getTime = function() {
 	return this.t_d || 0;
@@ -111,6 +106,7 @@ jPlayer.prototype.move_head_by = function(amt) {
 	if ( tentativeResult >= this.q.length || tentativeResult < 0) { return false; }
 
 	this.qHead = tentativeResult;
+	return true;
 }
 
 jPlayer.prototype.$ = function(name) {
@@ -131,6 +127,24 @@ jPlayer.prototype.$ = function(name) {
 		return $result;
 	}
 };
+
+jPlayer.prototype.next = function(args) {
+	if (!this.move_head_by(1)) { 
+		this.setState('stopped');
+		return false;
+	}
+	this.setState('changing');
+	this.play();
+}
+jPlayer.prototype.prev = function(args) {
+	if (!this.move_head_by(-1)) { 
+		this.setState('stopped');
+		return false;
+	}
+
+	this.setState('changing');
+	this.play();
+}
 
 jPlayer.prototype.play = function(name, args) {
 
@@ -172,6 +186,7 @@ jPlayer.prototype.play = function(name, args) {
 };
 
 jPlayer.prototype.stop = function() {
+	this.$jPlayer.jPlayer('stopped');
 	this.$jPlayer.jPlayer('setMedia', {}).jPlayer('play');
 };
 

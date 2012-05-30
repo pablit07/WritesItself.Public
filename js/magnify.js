@@ -2,9 +2,9 @@
 
 (function($) {
 
-	$.fn.magnification = function() {
+	$.fn.magnification = function(selector) {
 
-		var selector = "a";
+		selector = selector || "a";
 
 		$(this).each(function(i, el) {
 
