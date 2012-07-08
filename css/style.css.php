@@ -14,6 +14,7 @@ header('Content-type: text/css');
   echo file_get_contents("global.css");
   echo file_get_contents("dynamic.css");
   echo file_get_contents("toolbar.css");
+  echo file_get_contents("playlist.css");
 
   echo file_get_contents("magnify.css");
 

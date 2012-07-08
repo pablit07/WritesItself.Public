@@ -1,0 +1,86 @@
+
+
+#Playlist {
+    height: 180px;
+    left: 175px;
+    position: absolute;
+    top: -180px;
+    width: 335px;
+    background-color: #333333;
+    box-shadow: 0px 5px 5px 5px rgba(0,0,0, 0.25);
+    border-radius: 0 0 3px 3px;
+    z-index: 20;
+}
+
+#Playlist.open { top: 35px; }
+
+#Playlist .body {
+	bottom: 30px;
+    position: absolute;
+    top: 20px;
+    left: 1px; right: 3px;
+    overflow: auto;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+
+    behavior: url(css/PIE.htc);
+	border-radius: 5px;
+	color: #6C6E80;
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0, 0.25);
+	background-color: #333333;
+	color: #dedede;
+	border: 1px solid #1A1A1A;
+	border-top-color: #090909;
+	border-bottom-color: #565656;
+}
+
+#Playlist .body table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+#Playlist .body table tr,
+#Playlist .body table td {
+	border-bottom: 1px dotted #565656;
+}
+#Playlist .body table td { padding: 3px;}
+#Playlist .body table td.remove {
+	width: 32px;
+}
+
+#Playlist .body table td.remove span {
+	width: 17px;
+	height: 17px;
+	display: block;
+	background-image: url(../img/song-icons.png);
+	background-position: -1px -77px;
+	font-size: 0px;
+}
+
+#Playlist .footer {
+	height: 30px;
+	bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+	behavior: url(css/PIE.htc);
+    border-radius: 3px;
+
+    background-image: -moz-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
+	background-image: -webkit-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
+	background-image: -ms-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
+	background-image: -o-linear-gradient(top, #333 7%, #656565 33%, #1A1A1A 77%);
+	filter:
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#090909'),
+		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#333333',GradientType=0 );
+}
+
+#Playlist .footer a.clear {
+	background: url(../img/trashcan.png) -1px -1px no-repeat;
+	height: 24px;
+	position: absolute;
+	display: block;
+	top: 4px;
+	right: 20px;
+	padding-left: 20px;
+}
