@@ -1,0 +1,30 @@
+<!-- test the formMailer script -->
+
+<!doctype html>
+<html>
+	<head></head>
+
+	<body>
+
+		<form method="post" action="formMailer.php">
+
+			<label>Email address</label>
+			<input type=text name=email />
+			<br/>
+			<label>Phone #</label>
+			<input type=text name=phone />
+			<br/>
+
+			<div>My preference for method of contact:</div>
+			<label> Email
+				<input type=radio name=preference value=email />
+			</label>
+			<label> Text
+				<input type=radio name=preference value=text />
+			</label>
+			<br/>
+
+			<button type=submit>Submit</button>
+		</form>
+	</body>
+</html>
