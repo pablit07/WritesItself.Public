@@ -6,7 +6,7 @@ body {
 	font-size: 11px;
 	font-family: Garamond, serif;
 
-	color: #cecece;
+	color: #fff;
 }
 
 h1
@@ -29,6 +29,7 @@ li
 	list-style-type: none;
 	display: inline-block;
 }
+
 
 /* jPlayer */
 #jPlayer {position:fixed;}
@@ -152,3 +153,13 @@ li
 
 #Bubble nav { visibility: hidden;}
 #Bubble.big nav { visibility: visible;}
+
+.banner span.glyphicon { position: absolute; left: 10px; height: 16px; width: 16px;}
+
+.banner span.glyphicon.up { top: 10px;}
+
+.banner span.glyphicon.down { bottom: 10px;}
+
+.glyphicon { background-image: url(../img/glyphicons-halflings-white.png);}
+.glyphicon.down { background-position: -312px -120px;}
+.glyphicon.up { background-position: -287px -120px;}

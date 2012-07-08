@@ -74,19 +74,30 @@
 .toolbar .middle {	display: table-cell; vertical-align: middle; }
 .toolbar .bottom {	display: table-cell; vertical-align: bottom; }
 .toolbar .center { position: absolute; left: 33%; width: 33%; text-align: center;}
-.toolbar .icon { height: 16px; width: 16px; 
-	background-color: blue;
+.toolbar .icon { height: 36px; width: 32px; 
+	
 	filter:
-		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#090909')
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=150, Color='#090909');
+	background-image: url(../img/icons.png);
 
+	xbox-shadow:2px 2px 0 0 rgba(0,0,0,0.5);
 }
+
+
+.toolbar .icon.fb {background-position: 0 -879px;}
+.toolbar .icon.tw {background-position: 0 -50px;}
+.toolbar .icon.gp {background-position: 0 -118px;}
+.toolbar .icon.yt {background-image:url(../img/youtube.png);}
 
 /* Components */
 .toolbar .banner {
 	margin-right:20px;
 }
-.toolbar .title { font-size: 34px; font-weight: bold; padding: 0 20px; text-shadow: 2px 2px 0 0 rgba(0,0,0,0.5);}
+.toolbar .title { 
+
+}
 .toolbar .email { margin-left: 20px;}
+
 .toolbar .social li { margin-right: 20px;}
 
 /* Player */
