@@ -7,8 +7,8 @@
 
 	var rEl = [];
 
-	rEl.push("<tr data-index='0'>");
-	rEl.push("<td>");
+	rEl.push("<tr data-index='0' data-file=''>");
+	rEl.push("<td class='name'>");
 	rEl.push("</td>");
 	rEl.push("<td class='remove'>");
 	rEl.push("<span></span>");
@@ -20,6 +20,7 @@
 		var $el = this.$_playlistRow.clone();
 		$el.find("td").eq(0).html(name);
 		$el.attr("data-index", index);
+		$el.attr("data-file", name);
 		return $el;
 	};
 })();

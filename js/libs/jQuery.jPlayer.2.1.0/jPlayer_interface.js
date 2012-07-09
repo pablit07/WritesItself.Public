@@ -26,11 +26,12 @@ var jPlayer = function($parent, $interface, $playlist, options) {
 
 	this.setState("stopped");
 
-	this.clearQ();
+	
 
 	if (options.songs) {
 		this.setQ(options.songs);
-		this.$playlist.trigger("update");
+	} else {
+		this.clearQ();
 	}
 };
 
@@ -48,14 +49,25 @@ jPlayer.prototype.attachPlaylist = function($playlist) {
 	this.$playlist.bind('update', function() {
 		var $playlistTable = $(".body table tbody");
 		$playlistTable.html("");
-
+		console.info(self.qHead);
 		$.each(self.q, function(i, songName) {
-			$playlistTable.append(self.getPlaylistRowEl(i, songName));
+			var row = self.getPlaylistRowEl(i, songName);
+			if (i == self.qHead) {
+				row.addClass("active");
+			}
+			$playlistTable.append(row);
 		})
 	});
 }
 jPlayer.prototype.togglePlaylist = function() {
-	this.$playlist.toggleClass("open");
+	var self = this;
+	var top_end = this.$playlist.hasClass("open")
+		? -180
+		: 35;
+	this.$playlist.animate({top: top_end}, 500, function() {
+		self.$playlist.toggleClass("open");
+	});
+	
 }
 
 jPlayer.prototype.attachListeners = function() {
@@ -100,12 +112,16 @@ jPlayer.prototype.getTime = function() {
 jPlayer.prototype.clearQ = function() {
 	this.q = [];
 	this.qHead = 0;
+	this.$playlist.trigger("update");
 };
 jPlayer.prototype.setQ = function(q) {
 	this.q = q;
+	this.qHead = 0;
+	this.$playlist.trigger("update");
 }
 jPlayer.prototype.enqueue = function(item) {
 	this.q.push(item);
+	this.$playlist.trigger("update");
 }
 jPlayer.prototype.dequeue = function() {
 	if (!this.q.length) {return false;}
@@ -118,18 +134,20 @@ jPlayer.prototype.dequeue = function() {
 	if (isLast()) {
 		this.move_head_by(-1);
 	}
+	this.$playlist.trigger("update");
 	return this.q.pop();
 }
 jPlayer.prototype.remove = function(index) {
 	this.q.splice(index, 1);
+	this.$playlist.trigger("update");
 }
 //affect the head
 jPlayer.prototype.get_from_head = function(index) {
 	if (!this.q.length) {return false;}
 
-	if (index && !this.q[index]) { return false; }
+	if (typeof index != 'undefined' && !this.q[index]) { return false; }
 
-	this.qHead = index || this.qHead;
+	this.qHead = typeof index != 'undefined' ? index : this.qHead;
 
 	return this.q[this.qHead];
 }
@@ -187,7 +205,7 @@ jPlayer.prototype.play = function(name, args) {
 
 	if (!name) {
 
-		if (args.index) {
+		if (typeof args.index != 'undefined') {
 			//jump to index if set
 			var name = this.get_from_head(args.index);
 
@@ -218,6 +236,8 @@ jPlayer.prototype.play = function(name, args) {
 	this.setState('playing');
 
 	this.$jPlayer.jPlayer('setMedia', options).jPlayer('play');
+
+	this.$playlist.trigger("update");
 };
 
 jPlayer.prototype.stop = function() {

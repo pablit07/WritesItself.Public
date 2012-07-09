@@ -178,7 +178,12 @@ Page.prototype.audio_playlist_close = function() {
 		this.jPlayer.togglePlaylist();
 	}
 }
-
+Page.prototype.audio_playlist_clear = function() {
+	this.jPlayer.clearQ();
+}
+Page.prototype.audio_playlist_add = function(param) {
+	this.jPlayer.enqueue(param);
+}
 Page.prototype.bubble_pause = function() {
 	this.$Bubble.pause();
 };
@@ -192,6 +197,16 @@ Page.prototype.attachDomEvents = function() {
 		.on('click', 'a.pause', function() { self.audio_pause();})
 		.on('click', 'a.next', function() { self.audio_next();})
 		.on('click', 'a.prev', function() { self.audio_prev();})
+		.on('click', 'a.playlist', function() { self.jPlayer.togglePlaylist();})
+	;
+	
+	//playlist
+	$("#Playlist")
+		.on('click', 'td.remove span', function() { self.jPlayer.remove($(this).closest("tr").data("index")); })
+		.on('click', 'a.clear', function() { self.audio_playlist_clear(); })
+		.on('click', 'td.name', function() {
+			self.jPlayer.play(null, {index: $(this).closest("tr").data("index")});
+		})
 	;
 
 
