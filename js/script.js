@@ -12,7 +12,7 @@ if (!window.console) {
 
 Page.prototype.init = function() {
 
-	this.attachjPlayer($("#jPlayer"), $("div.toolbar ul.player"));
+	this.attachjPlayer($("#jPlayer"), $("div.toolbar ul.player"), $("#Playlist"));
 
 	this.attachDomEvents();
 	this.fadeInContent();
@@ -127,7 +127,7 @@ Page.prototype.animate_stop = function() {
 	this.breathingAnimationTaskId = null;
 };
 
-Page.prototype.attachjPlayer = function($parent, $interface) {
+Page.prototype.attachjPlayer = function($parent, $interface, $playlist) {
 	if (typeof jPlayer != 'function') { console.info("jPlayer class not found"); return false; } // ensure plugin is installed
 
 	var options = {
@@ -137,7 +137,7 @@ Page.prototype.attachjPlayer = function($parent, $interface) {
 		]
 	};
 
-	this.jPlayer = new jPlayer($parent, $interface, options);
+	this.jPlayer = new jPlayer($parent, $interface, $playlist, options);
 };
 
 Page.prototype.urlEncode = function(url) {
@@ -168,6 +168,16 @@ Page.prototype.audio_next = function() {
 Page.prototype.audio_prev = function() {
 	this.jPlayer.prev()
 };
+Page.prototype.audio_playlist_open = function() {
+	if (!this.jPlayer.$playlist.hasClass("open")) {
+		this.jPlayer.togglePlaylist();
+	}
+}
+Page.prototype.audio_playlist_close = function() {
+	if (this.jPlayer.$playlist.hasClass("open")) {
+		this.jPlayer.togglePlaylist();
+	}
+}
 
 Page.prototype.bubble_pause = function() {
 	this.$Bubble.pause();

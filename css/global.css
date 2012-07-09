@@ -31,12 +31,15 @@ li
 }
 
 
+
 /* jPlayer */
 #jPlayer {position:fixed;}
 
 /* Breathing Background */
 
 #Breathing {
+	min-width: 1024px;
+	min-height: 768px;
 	background-color: black;
 }
 
@@ -76,6 +79,7 @@ li
 #cloak {
 	display: none;
 	z-index:50;
+	position: fixed;
 }
 
 /* Bubble */

@@ -1,7 +1,8 @@
 
 
 
-var jPlayer = function($parent, $interface, options) {
+var jPlayer = function($parent, $interface, $playlist, options) {
+	//failsafe checks
 	if (!$) { console.info("jQuery ($) not found."); return false; }
 	if (!$.fn.jPlayer) { console.info("jPlayer download failed."); return false; } // ensure plugin is installed
 
@@ -21,15 +22,41 @@ var jPlayer = function($parent, $interface, options) {
 	this.$interface = $interface;
 
 	this.attachListeners();
+	this.attachPlaylist($playlist);
 
 	this.setState("stopped");
 
 	this.clearQ();
 
 	if (options.songs) {
-		this.q = options.songs;
+		this.setQ(options.songs);
+		this.$playlist.trigger("update");
 	}
 };
+
+jPlayer.prototype.attachPlaylist = function($playlist) {
+	if (typeof $playlist == 'undefined') {
+			//create dummy playlist element
+		this.$playlist = $("<div></div>");
+		return;
+	}
+
+	var self = this;
+
+	this.$playlist = $playlist;
+
+	this.$playlist.bind('update', function() {
+		var $playlistTable = $(".body table tbody");
+		$playlistTable.html("");
+
+		$.each(self.q, function(i, songName) {
+			$playlistTable.append(self.getPlaylistRowEl(i, songName));
+		})
+	});
+}
+jPlayer.prototype.togglePlaylist = function() {
+	this.$playlist.toggleClass("open");
+}
 
 jPlayer.prototype.attachListeners = function() {
 	var self = this;
@@ -56,6 +83,8 @@ jPlayer.prototype.attachListeners = function() {
 
 		$(this).find('input').val(m+":"+s);
 	});
+
+
 };
 
 jPlayer.prototype.timeUpdate = function(e) {
@@ -72,6 +101,9 @@ jPlayer.prototype.clearQ = function() {
 	this.q = [];
 	this.qHead = 0;
 };
+jPlayer.prototype.setQ = function(q) {
+	this.q = q;
+}
 jPlayer.prototype.enqueue = function(item) {
 	this.q.push(item);
 }
@@ -87,6 +119,9 @@ jPlayer.prototype.dequeue = function() {
 		this.move_head_by(-1);
 	}
 	return this.q.pop();
+}
+jPlayer.prototype.remove = function(index) {
+	this.q.splice(index, 1);
 }
 //affect the head
 jPlayer.prototype.get_from_head = function(index) {

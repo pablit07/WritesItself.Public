@@ -6,6 +6,7 @@
 	/* libs */
 	echo file_get_contents("libs".DS."jQuery.jPlayer.2.1.0".DS."jquery.jplayer.min.js");
 	echo file_get_contents("libs".DS."jQuery.jPlayer.2.1.0".DS."jPlayer_interface.js");
+	echo file_get_contents("libs".DS."jQuery.jPlayer.2.1.0".DS."playlistRowTemplate.js");
 
 	/* includes - js files */
 

@@ -15,3 +15,5 @@
 .italic {font-style:italic;}
 
 .relative { position: relative;}
+
+.hidden { display: none; }
