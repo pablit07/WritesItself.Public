@@ -42,6 +42,7 @@
 #Playlist .body table tr,
 #Playlist .body table td {
 	border-bottom: 1px dotted #565656;
+	cursor: pointer;
 }
 #Playlist .body table tr.active,
 #Playlist .body table tr.active td {

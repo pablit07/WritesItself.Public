@@ -93,7 +93,7 @@ jPlayer.prototype.attachListeners = function() {
 
 		if (s < 10) { s = "0" + s; }
 
-		$(this).find('input').val(m+":"+s);
+		$(this).find('div.time').text(m+":"+s);
 	});
 
 
@@ -238,6 +238,8 @@ jPlayer.prototype.play = function(name, args) {
 	this.$jPlayer.jPlayer('setMedia', options).jPlayer('play');
 
 	this.$playlist.trigger("update");
+
+	this.$("lcd").find('div.name').text(name);
 };
 
 jPlayer.prototype.stop = function() {

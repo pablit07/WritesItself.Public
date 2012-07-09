@@ -129,6 +129,18 @@
 .toolbar .player a.next span:active,
 .toolbar .player a.next:active span { background-position: 0px -154px;}
 .toolbar .player a.lcd input { height: 40px; margin: 0 20px;}
+.toolbar .player a.lcd .time,
+.toolbar .player a.lcd .name { position: absolute; }
+.toolbar .player a.lcd .time { left: 45px; top: 17px;}
+.toolbar .player a.lcd .name { 
+	left: 96px;
+	top: 17px;
+	padding-left: 8px;
+	border-left: 1px solid #565656;
+	max-width: 150px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
 .toolbar .player a.playlist span { background: url(../img/queue.png) 0 0 no-repeat; width: 29px; height: 30px;}
 
