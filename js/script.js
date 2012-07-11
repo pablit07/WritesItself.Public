@@ -20,7 +20,7 @@ Page.prototype.init = function() {
 
 	//$.firefly();
 
-	this.runHash();
+	//this.runHash();
 	// Do we want to check for hash changes?
 	//window.onhashchange = $.proxy(this.runHash, this);
 
@@ -29,7 +29,6 @@ Page.prototype.init = function() {
 Page.prototype.runHash = function() {
 	var hash = window.location.hash;
 	hash = hash.substr(1, hash.length-1);
-	console.info("hash", hash);
 	if (!hash) { return false; }
 
 	var actionIndex = hash.indexOf(" ");

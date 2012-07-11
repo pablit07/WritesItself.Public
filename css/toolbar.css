@@ -34,7 +34,6 @@
 /* Common Elements */
 
 .toolbar a {
-    color: #AAAAAA;
     display: inline-block;
     height: 45px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
@@ -129,8 +128,9 @@
 .toolbar .player a.next span:active,
 .toolbar .player a.next:active span { background-position: 0px -154px;}
 .toolbar .player a.lcd input { height: 40px; margin: 0 20px;}
+.toolbar .player a.lcd:hover { color: #DEDEDE;}
 .toolbar .player a.lcd .time,
-.toolbar .player a.lcd .name { position: absolute; }
+.toolbar .player a.lcd .name { position: absolute;  font-family: arial; font-size: 12px; }
 .toolbar .player a.lcd .time { left: 45px; top: 17px;}
 .toolbar .player a.lcd .name { 
 	left: 96px;

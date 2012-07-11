@@ -1,12 +1,23 @@
 
-a { text-decoration: none; color: inherit;}
+a {
+	text-decoration: none;    
+	color: #DEDEDE;
+    font-weight: bold;
+}
+a:hover {
+	color: #aaa;
+}
+a:visited {
+	color: #DEDEDE;
+}
+
 body {
 	background-color: black;
 
-	font-size: 11px;
+	font-size: 13.5px;
 	font-family: Garamond, serif;
 
-	color: #fff;
+	color: #DEDEDE;
 }
 
 h1
@@ -37,17 +48,17 @@ li
 
 /* Breathing Background */
 
-#Breathing {
+#Background {
 	min-width: 1024px;
 	min-height: 768px;
 	background-color: black;
 }
 
-.no-csstransitions #Breathing {
+.no-csstransitions #Background {
 	display: none;
 }
 
-#Breathing img.Breathing {
+#Background img.Breathing {
 	height: 100%;
 	width: 100%;
 }
@@ -91,6 +102,10 @@ li
     z-index: 3;
     font-size: 17px;
     display: none;
+}
+#Bubble a {
+	color: #551A8B;
+	font-weight: normal;
 }
 .innerBubble nav li {
 	display: block;
