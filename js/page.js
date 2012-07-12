@@ -20,7 +20,7 @@ Page.prototype.init = function() {
 
 	//$.firefly();
 
-	//this.runHash();
+	this.runHash();
 	// Do we want to check for hash changes?
 	//window.onhashchange = $.proxy(this.runHash, this);
 
@@ -50,9 +50,11 @@ Page.prototype.hasTransitions = function() {
 }
 
 
-Page.prototype.attachBreathing = function($parent) {
+Page.prototype.attachBreathing = function($parent, src) {
 
-	this.$breathing_el = $('<img src="img/backgrounds/breathing.png" class="Breathing" />');
+	this.$breathing_el = $('<img class="Breathing" />');
+
+	src = src ||  "img/backgrounds/breathing.png";
 
 	var self = this;
 

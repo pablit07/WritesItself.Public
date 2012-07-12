@@ -12,7 +12,10 @@
 
 	echo file_get_contents("libs".DS."ball".DS."ball.js");
 	echo file_get_contents("common.js");
-	echo file_get_contents("script.js");
+
+	echo file_get_contents("page.js");
+	echo file_get_contents("page.breathing.js");
+	
 	echo file_get_contents("magnify.js");
 	echo file_get_contents("libs".DS."jquery-firefly-0.1.js");
 
