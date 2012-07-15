@@ -7,21 +7,21 @@
 }
 
 .fade2s {
-    -moz-transition: opacity 2s cubic-bezier(1,1,0,0);
-    -webkit-transition: opacity 2s cubic-bezier(1,1,0,0);
-    transition: opacity 2s cubic-bezier(1,1,0,0);
+    -moz-transition: opacity 2s cubic-bezier(1,1,0,0), background-color 6s linear;
+    -webkit-transition: opacity 2s cubic-bezier(1,1,0,0), background-color 6s linear;
+    transition: opacity 2s cubic-bezier(1,1,0,0), background-color 6s linear;
 }
 
 .fade3s {
-    -moz-transition: opacity 3s cubic-bezier(1,1,0,0);
-    -webkit-transition: opacity 3s cubic-bezier(1,1,0,0);
-    transition: opacity 3s cubic-bezier(1,1,0,0);
+    -moz-transition: opacity 3s cubic-bezier(1,1,0,0), background-color 6s linear;
+    -webkit-transition: opacity 3s cubic-bezier(1,1,0,0), background-color 6s linear;
+    transition: opacity 3s cubic-bezier(1,1,0,0), background-color 6s linear;
 }
 
 .fade1s {
-    -moz-transition: opacity 1s cubic-bezier(1,1,0,0);
-    -webkit-transition: opacity 1s cubic-bezier(1,1,0,0);
-    transition: opacity 1s cubic-bezier(1,1,0,0);
+    -moz-transition: opacity 1s cubic-bezier(1,1,0,0), background-color 6s linear;
+    -webkit-transition: opacity 1s cubic-bezier(1,1,0,0), background-color 6s linear;
+    transition: opacity 1s cubic-bezier(1,1,0,0), background-color 6s linear;
 }
 
 

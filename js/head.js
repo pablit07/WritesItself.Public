@@ -1,6 +1,14 @@
 /* overall page level stuff */
 var Page = function() {};
 
+Page.prototype.preloadImage = function(args) {
+	args = args || {};
+	var preloader = new Image();
+	preloader.onload = function() {
+		args.callback(preloader);
+	};
+	preloader.src = args.src;
+}
 Page.prototype.preloadImages = function(args) {
 
 	var self = this;
@@ -10,23 +18,19 @@ Page.prototype.preloadImages = function(args) {
 
 	// do fade in effect after image has loaded
 	//TODO ~add the imgs to an array
-	var background = new Image();
 
-	background.onload = function() {
+	this.preloadImage({
+		callback: function(background) {
+			// notify listeners when finished
+			// ~ try and use the default listener if the list isn't set
+			var listeners = self.listeners || [self];
 
-		// notify listeners when finished
-		// ~ try and use the default listener if the list isn't set
-		var listeners = self.listeners || [self];
-
-
-		for (var i = 0; i < listeners.length; i++) {
-			listeners[i].onAfterPreloadImages({background: background});
-		}
-		
-		
-	};
-
-	background.src = "img/backgrounds/breathing.png";
+			for (var i = 0; i < listeners.length; i++) {
+				listeners[i].onAfterPreloadImages({background: background});
+			}			
+		},
+		src: "img/backgrounds/breathing.png"
+	});
 }
 
 var page = new Page();

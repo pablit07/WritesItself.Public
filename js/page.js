@@ -49,49 +49,6 @@ Page.prototype.hasTransitions = function() {
 	return $("html").hasClass("csstransitions");
 }
 
-
-Page.prototype.attachBreathing = function($parent, src) {
-
-	this.$breathing_el = $('<img class="Breathing" />');
-
-	src = src ||  "img/backgrounds/breathing.png";
-
-	var self = this;
-
-	self.$breathing_el.appendTo($parent);
-	
-	var fadeIn;
-	if(!this.hasTransitions()) {
-	
-		fadeIn = function($parent, t) {
-			$parent.fadeIn(t);
-		};
-
-	} else {
-
-		fadeIn = function($parent, t) {
-			$parent.removeClass("fade_out");
-			setInterval(function() {
-				$parent.removeClass("fade2s");
-				$parent.addClass("breathing");
-			}, t);
-		};		
-	}
-	
-	fadeIn($parent, 2000);
-
-	var colors = ["#00bb33", "#FFD900", "#BB20E6", "#E62020", "#2055E6"];
-	var i = 0;
-	this.breathing = function() {
-
-		$parent.css('background-color', colors[i]);
-		i++;
-		if (i == colors.length) { i = 0; }
-	};
-
-	this.animate_start();
-}
-
 Page.prototype.attachBubble = function() {
 	var $B = $("#Bubble");
 	this.$Bubble = $B;
@@ -118,15 +75,6 @@ Page.prototype.attachBubble = function() {
 	});
 };
 
-Page.prototype.animate_start = function() {
-	if (this.breathingAnimationTaskId != null) { return false; } //only run once
-	this.breathingAnimationTaskId = setInterval(this.breathing, 8010);
-};
-
-Page.prototype.animate_stop = function() {
-	clearTimeout(this.breathingAnimationTaskId);
-	this.breathingAnimationTaskId = null;
-};
 
 Page.prototype.attachjPlayer = function($parent, $interface, $playlist) {
 	if (typeof jPlayer != 'function') { console.info("jPlayer class not found"); return false; } // ensure plugin is installed
@@ -219,7 +167,7 @@ Page.prototype.attachDomEvents = function() {
 		var $el = $(this);
 		var action = $el.data('action') || "";
 
-		self.runAction(action, $el);		
+		self.runAction(action, $el);	
 	});
 };
 
