@@ -1,0 +1,60 @@
+<!doctype html>
+
+<head>
+
+	<link rel="stylesheet" href="css/contact.css">
+	<link rel="stylesheet" href="css/toolbar.css">
+</head>
+
+<body>
+
+<div class="toolbar">
+	<div id="ContactModule">
+
+		<div class="formWrapper">
+			<form onsubmit="return false;">
+				<div class="drawer">
+					<fieldset>
+						<input type="text" name="email" />
+						<label>Email</label>
+					</fieldset>
+
+					<fieldset>
+						<input type="text" name="phone" />
+						<label>Phone</label>
+					</fieldset>
+
+					<p>We can announce shows to you by email or text</p>
+					<fieldset>
+						<label for="EmailPreference">Email</label>
+						<input id="EmailPreference" type="radio" name="preference" value="Email"/>
+					</fieldset>
+					<fieldset>
+						<label for="TextPreference">Text</label>
+						<input id="TextPreference" type="radio" name="preference" value="Text"/>
+					</fieldset>
+
+					<button name="cancel">Cancel</button>
+				</div>
+
+				<button name="add">Add</button>
+			</form>
+		</div>
+	</div>
+</div>
+	<!-- TODO remove -->
+	<script src="js/libs/jquery-1.7.2.min.js"></script>
+	<script src="js/contactModule.js"></script>
+
+	<script type="text/javascript">
+
+		$(
+			function() {
+				window.contact = new ContactController();
+			}
+		);
+
+
+	</script>
+
+</body>

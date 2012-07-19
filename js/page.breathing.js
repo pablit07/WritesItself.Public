@@ -31,6 +31,7 @@ Page.prototype.attachBreathing = function($parent, src) {
 	var self = this;
 
 	this.setBreathingImage({src: src});
+	this.imgIndex = "Breathing";
 	
 	this.$breathing_img.appendTo($parent);
 	
@@ -50,6 +51,63 @@ Page.prototype.attachBreathing = function($parent, src) {
 	this.animate_start();
 }
 
+Page.prototype.cycleBreathingImage = function(args) {
+
+	args = args || {};
+
+	var isIndexFound = false;
+	var isSelected = false;
+	var firstIndex = false;
+
+	if (!this.imgIndex) {
+		//if imgIndex is not initialized then take the first index
+		isIndexFound = true;
+	}
+
+	for (var i in this.images)
+	{
+		// store the first index in case the current index is the last
+		firstIndex = firstIndex || i;
+
+		if (isIndexFound) {
+			this.imgIndex = i;
+			isSelected = true;
+			break;
+		}
+		// get the index after the currently selected one
+		// ~if img index is not set, loop code will break before entering
+		// ~if we reach the end without setting a new index, take the first index
+		if (i === this.imgIndex) {
+			// if currently selected index is found, take the next index
+			isIndexFound = true;
+		}
+	}
+
+	//if we reach the end without setting a new index, take the first index
+	if (!isSelected) {
+		this.imgIndex = firstIndex
+	}
+
+	this.changeBreathingImage({name: this.imgIndex});
+}
+Page.prototype.changeBreathingImage = function(args) {
+
+	var self = this;
+
+	args = args || {};
+
+	this.preloadImage({
+		src: this.imageFolder + this.images[args.name] || args.src || "",
+		callback: function(img) {
+			self.fadeOutBreathing();
+
+			setTimeout(function() {
+				self.setBreathingImage(args);
+				self.fadeInBreathing();
+			}, 2010);
+		}
+	});
+}
 Page.prototype.setBreathingImage = function(args) {
 	var self = this;
 	args = args || {};
@@ -71,16 +129,9 @@ Page.prototype.setBreathingImage = function(args) {
 		var img = this.images[args.name];
 		src = this.imageFolder + img;
 		this.activeImage = img;
-
-		console.info(img);
 	}
 
-	this.preloadImage({
-		src: src,
-		callback: function() {
-			self.$breathing_img[0].src = src;
-		}
-	});
+	this.$breathing_img[0].src = src;
 }
 
 // Fades in the breathing image animation

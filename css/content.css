@@ -1,0 +1,38 @@
+body { 
+	min-width: 768px;
+	min-height: 1024px;
+}
+
+#ContentFrame {
+	left: 50%;
+	top: 1%;
+	bottom: 1%;
+	right: 1%;
+	position: absolute;
+}
+
+#ContentModule {
+    position: absolute;
+    color: white;
+    background-color: black;
+    left: 0;
+    top: 0;
+    right: 96px;
+    bottom: 96px;
+}
+
+#ContentModule .footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+#ContentModule .footer .resize {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+body {
+	height: 100%;
+}
+

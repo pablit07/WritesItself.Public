@@ -49,8 +49,8 @@ Page.prototype.onAfterPreloadImages = function(args) {
 	};
 
 	//poll
-	var timer = setInterval(onFinishedLoading, 50); //adds delay
-
+	var timer = setInterval(onFinishedLoading, 50);
+	onFinishedLoading();
 
 }
 

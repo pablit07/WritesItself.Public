@@ -1,0 +1,46 @@
+#ContactModule {
+	width: 325px;
+	background-color: transparent;
+	color: white;
+	position: absolute;
+	left: 0;
+	top: -222px;
+}
+
+#ContactModule .drawer {
+	background: black;
+	position: relative;
+	z-index: -1;
+	width: 325px;
+	bottom: -222px;
+}
+#ContactModule .drawer.open {
+	bottom: -20px;
+}
+form fieldset {
+	border: none;
+	text-align: center;
+}
+
+#ContactModule label {
+	width: 42px;
+	display: inline-block;
+}
+
+#ContactModule button[name="add"] {
+	float: right;
+	width: 76px;
+}
+
+#ContactModule button[name="cancel"] {
+	width: 76px;
+}
+
+#ContactModule input[type="text"] {
+	width: 214px;
+	margin-right: 10px;
+}
+
+#ContactModule input[type="radio"] {
+	width: auto;
+}

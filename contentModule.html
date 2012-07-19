@@ -1,0 +1,45 @@
+<!doctype html >
+
+<html>
+
+	<head>
+		<link rel="stylesheet" href="css/content.css">
+	</head>
+
+	<body>
+
+		<div id="ContentFrame">
+
+			<div id="ContentModule">
+				<div class="header">
+					<a href="#">test page 1</a>
+					<a href="#">test page 2</a>
+					<span class="adjust">adjust</adjust>
+				</div>
+
+				<div class="body">
+
+				</div>
+
+				<div class="footer">
+					<span class="resize">resize</span>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="js/libs/jquery-1.7.2.min.js"></script>
+		<script src="js/contentModule.js"></script>
+
+		<script type="text/javascript">
+
+			$(
+				function() {
+					window.content = new ContentController();
+				}
+			);
+		</script>
+
+	</body>
+
+</html>
