@@ -80,16 +80,38 @@
 
 <div id="cloak" class="footer toolbar">
 
-	<div class="fleft email">
-		<div class="fleft">
-			<a class="middle">
-				<input type="text" value="add your email to our mailing list"></input>
-			</a>
-		</div>
-		<div class="fleft">
-			<a class="middle">
-				<button>Add to Mailing List</button>
-			</a>
+	<div class="email">
+		<div id="ContactModule">
+
+			<div class="formWrapper">
+				<form onsubmit="return false;">
+					<div class="drawer">
+						<fieldset>
+							<input type="text" name="email" />
+							<label>Email</label>
+						</fieldset>
+
+						<fieldset>
+							<input type="text" name="phone" />
+							<label>Phone</label>
+						</fieldset>
+
+						<p>We can announce shows to you by email or text</p>
+						<fieldset>
+							<label for="EmailPreference">Email</label>
+							<input id="EmailPreference" type="radio" name="preference" value="Email"/>
+						</fieldset>
+						<fieldset>
+							<label for="TextPreference">Text</label>
+							<input id="TextPreference" type="radio" name="preference" value="Text"/>
+						</fieldset>
+
+						<button name="cancel">Cancel</button>
+					</div>
+
+					<button name="add">Add</button>
+				</form>
+			</div>
 		</div>
 	</div>
 
@@ -164,6 +186,27 @@
 	    </div>	
     </div>
 </div>
+
+<div id="ContentFrame">
+
+	<div id="ContentModule">
+		<div class="header">
+			<a href="#">test page 1</a>
+			<a href="#">test page 2</a>
+			<span class="adjust">adjust</adjust>
+		</div>
+
+		<div class="body">
+
+		</div>
+
+		<div class="footer">
+			<span class="resize">resize</span>
+		</div>
+	</div>
+
+</div>
+
 
 	<div id="container">
 		<header>

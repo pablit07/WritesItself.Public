@@ -1,7 +1,4 @@
-body { 
-	min-width: 768px;
-	min-height: 1024px;
-}
+
 
 #ContentFrame {
 	left: 50%;
@@ -32,7 +29,5 @@ body {
 	bottom: 0;
 	right: 0;
 }
-body {
-	height: 100%;
-}
+
 

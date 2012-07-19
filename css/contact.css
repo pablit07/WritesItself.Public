@@ -4,7 +4,7 @@
 	color: white;
 	position: absolute;
 	left: 0;
-	top: -222px;
+	top: -152px;
 }
 
 #ContactModule .drawer {
@@ -12,12 +12,12 @@
 	position: relative;
 	z-index: -1;
 	width: 325px;
-	bottom: -222px;
+	bottom: -162px;
 }
 #ContactModule .drawer.open {
 	bottom: -20px;
 }
-form fieldset {
+#ContactModule fieldset {
 	border: none;
 	text-align: center;
 }

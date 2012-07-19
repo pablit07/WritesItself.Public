@@ -137,7 +137,4 @@ ContentModule.prototype.adjust = function(args) {
 	this.$el.css({top: top + pos.top, left: left + pos.left});
 };
 
-ContentModule.prototype.scrollTo = function(args) {
-	
-}
 

@@ -97,7 +97,7 @@
 .toolbar .title { 
 
 }
-.toolbar .email { margin-left: 20px;}
+.toolbar .email { position: absolute; left: 20px; width: 325px; }
 
 .toolbar .social li { margin-right: 20px;}
 

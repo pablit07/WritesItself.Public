@@ -15,6 +15,8 @@
 
 	echo file_get_contents("page.js");
 	echo file_get_contents("page.breathing.js");
+	echo file_get_contents("contentModule.js");
+	echo file_get_contents("contactModule.js");
 	
 	echo file_get_contents("magnify.js");
 	echo file_get_contents("libs".DS."jquery-firefly-0.1.js");
