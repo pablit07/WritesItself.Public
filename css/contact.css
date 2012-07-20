@@ -24,13 +24,12 @@
 	padding: 0px 8px 4px 0px;
 	margin: 0 0 1px 0;
 	border-radius: 3px 3px 0 0;
-	border-bottom: 1px solid black;
 	text-align: center;
 	color: #DEDEDE;
-	background-image: -moz-linear-gradient(top, #656565 33%, #1A1A1A 77%);
-	background-image: -webkit-linear-gradient(top, #656565 33%, #1A1A1A 77%);
-	background-image: -ms-linear-gradient(top, #656565 33%, #1A1A1A 77%);
-	background-image: -o-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -moz-linear-gradient(top, #656565 33%, #333333 77%);
+	background-image: -webkit-linear-gradient(top, #656565 33%, #333333 77%);
+	background-image: -ms-linear-gradient(top, #656565 33%, #333333 77%);
+	background-image: -o-linear-gradient(top, #656565 33%, #333333 77%);
 	filter:
 		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#333333',GradientType=0 );
 }

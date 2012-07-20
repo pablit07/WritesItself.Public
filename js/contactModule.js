@@ -6,6 +6,7 @@ var ContactController = function() {
 ContactController.prototype.init = function() {
 	this.module = new ContactModule($("#ContactModule"));
 	this.attachEvents();
+	this.module.setDefaultValues();
 };
 
 ContactController.prototype.attachEvents = function() {
@@ -38,6 +39,16 @@ ContactController.prototype.attachEvents = function() {
 	this.module.cancel.on('click', function() {
 		self.module.resetForm();
 		self.module.close();
+	});
+
+	this.module.$el.on('focus', 'input[type=text]', function() {
+
+		var $this = $(this);
+
+		if ($this.val() === $this.attr('defaultvalue'))	{
+			//clear default text on focus
+			$this.val("");
+		}
 	});
 
 };
@@ -91,10 +102,12 @@ ContactModule.prototype.getFormData = function() {
 
 	return data;
 };
-
+ContactModule.prototype.setDefaultValues = function() {
+	this.fields.email.val(this.fields.email.attr("defaultvalue"));
+	this.fields.phone.val(this.fields.phone.attr("defaultvalue"));
+};
 ContactModule.prototype.resetForm = function() {
-	this.fields.email.val("");
-	this.fields.phone.val("");
+	this.setDefaultValues();
 
 	this.fields.preference.each(function() {
 		$(this).attr("checked", null);
