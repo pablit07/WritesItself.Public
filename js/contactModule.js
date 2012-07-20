@@ -26,7 +26,7 @@ ContactController.prototype.attachEvents = function() {
 				alert("There was some trouble submitting your info. Please try again or let us know you are experiencing problems.");
 			},
 			complete: function() {
-				setTimeout(this.module.close, 1000);
+				setTimeout(function() { self.module.close(); }, 1000);
 			}
 		});
 	});
@@ -56,15 +56,14 @@ var ContactModule = function(el) {
 		preference: $("input[name=preference]", this.el)
 	};
 
-	this.add = $("button[name=add]", this.el);
+	this.add = $(".email button[name=add]");
 	this.cancel = $("button[name=cancel]", this.el);
 };
 
 ContactModule.prototype.open = function() {
 	var self = this;
 
-	this.$drawer.animate({bottom: -20}, 500, function() {
-		self.$el.addClass("open");
+	this.$drawer.animate({bottom: -36}, 500, function() {
 		self.isOpen = true;
 	});
 };
@@ -72,9 +71,9 @@ ContactModule.prototype.open = function() {
 ContactModule.prototype.close = function() {
 	var self = this;
 
-	this.$drawer.animate({bottom: -222}, 200, function() {
-		self.$el.removeClass("open");
+	this.$drawer.animate({bottom: -161}, 200, function() {
 		self.isOpen = false;
+		self.resetForm();
 	});
 };
 

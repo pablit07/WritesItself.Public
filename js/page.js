@@ -18,6 +18,9 @@ Page.prototype.init = function() {
 	this.fadeInContent();
 	this.attachBubble();
 
+	this.content = new ContentController();
+	this.contact = new ContactController();
+
 	//$.firefly();
 
 	this.runHash();

@@ -4,41 +4,85 @@
 	color: white;
 	position: absolute;
 	left: 0;
-	top: -152px;
+	top: -162px;
+	z-index: 200;
 }
 
 #ContactModule .drawer {
-	background: black;
+	background: #333;
 	position: relative;
-	z-index: -1;
 	width: 325px;
-	bottom: -162px;
-}
-#ContactModule .drawer.open {
-	bottom: -20px;
+	bottom: -161px;
+	border: 1px solid #202020;
+	border-radius: 3px;
 }
 #ContactModule fieldset {
 	border: none;
 	text-align: center;
 }
+#ContactModule h4 {
+	padding: 0px 8px 4px 0px;
+	margin: 0 0 1px 0;
+	border-radius: 3px 3px 0 0;
+	border-bottom: 1px solid black;
+	text-align: center;
+	color: #DEDEDE;
+	background-image: -moz-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -webkit-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -ms-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -o-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	filter:
+		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#333333',GradientType=0 );
+}
 
+#ContactModule p {
+	text-align: center;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
 #ContactModule label {
 	width: 42px;
 	display: inline-block;
 }
 
-#ContactModule button[name="add"] {
-	float: right;
+#EmailPreference,
+#TextPreference {
+	vertical-align: middle;
+}
+
+.email .add {
+	z-index: 400;
+}
+.email button { 
 	width: 76px;
+	background-image: -moz-linear-gradient(top, #E3E3E3 33%, #727272 97%);
+	background-image: -webkit-linear-gradient(top, #E3E3E3 33%, #727272 97%);
+	background-image: -ms-linear-gradient(top, #E3E3E3 33%, #727272 97%);
+	background-image: -o-linear-gradient(top, #E3E3E3 33%, #727272 97%);
+	filter:
+		progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E3E3', endColorstr='#727272',GradientType=0 );
+	border: 1px solid #1A1A1A;
+	border-radius: 5px;
+}
+
+.email button[name="add"] {
+	z-index: 300;
+	position: absolute;
+	right: 0;
+	top: 26px;
 }
 
 #ContactModule button[name="cancel"] {
-	width: 76px;
+	position: relative;
+	bottom: 3px;
+	left: 0px;
 }
 
 #ContactModule input[type="text"] {
-	width: 214px;
+	width: 170px;
 	margin-right: 10px;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 #ContactModule input[type="radio"] {
