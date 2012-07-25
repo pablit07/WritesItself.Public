@@ -1,7 +1,7 @@
 
 Page.prototype.images = {
-	Breathing: "breathing.png",
-	LagoonFroth: "lagoon-froth.png"
+	Breathing: "breathing_small.png",
+	LagoonFroth: "lagoon-froth_small.png"
 };
 Page.prototype.imageFolder = "img/backgrounds/";
 
@@ -25,7 +25,7 @@ Page.prototype.attachBreathing = function($parent, src) {
 	this.$breathing_el = $parent;
 	this.$breathing_img = $('<img class="Breathing" />');
 
-	src = src ||  "img/backgrounds/breathing.png";
+	src = src ||  "img/backgrounds/breathing_small.png";
 	
 
 	var self = this;
@@ -39,7 +39,11 @@ Page.prototype.attachBreathing = function($parent, src) {
 	
 	this.$breathing_el.addClass("breathing");
 
-	var colors = ["#00bb33", "#FFD900", "#BB20E6", "#E62020", "#2055E6"];
+	// original bright colors
+	//var colors = ["#00bb33", "#FFD900", "#BB20E6", "#E62020", "#2055E6"];
+	//matching colors
+	var colors = ['#07F3BF', '#EAA00A', '#E5F10C', '#0B0B0B', '#0A3C3B', '#F07D7A'];
+
 	var i = 0;
 	this.breathing = function() {
 

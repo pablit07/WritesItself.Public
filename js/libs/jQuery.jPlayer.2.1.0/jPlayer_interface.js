@@ -183,7 +183,7 @@ jPlayer.prototype.$ = function(name) {
 
 jPlayer.prototype.next = function(args) {
 	if (!this.move_head_by(1)) { 
-		this.setState('stopped');
+		this.stop();
 		return false;
 	}
 	this.setState('changing');
@@ -240,11 +240,13 @@ jPlayer.prototype.play = function(name, args) {
 	this.$playlist.trigger("update");
 
 	this.$("lcd").find('div.name').text(name);
+	this.$("lcd").find('div.time').html("<div class='loading'></div>");
 };
 
 jPlayer.prototype.stop = function() {
 	this.$jPlayer.jPlayer('stopped');
 	this.$jPlayer.jPlayer('setMedia', {}).jPlayer('play');
+	this.$("lcd").find('div.name, div.time').text("");
 };
 
 jPlayer.prototype.pause = function() {

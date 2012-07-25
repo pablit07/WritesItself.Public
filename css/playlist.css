@@ -95,3 +95,13 @@
 }
 
 #Playlist .footer a.clear:visited { color: black; }
+
+#Playlist .footer a.close {
+	width: 21px;
+	height: 11px;
+	background-image: url(../img/close.png);
+	display: block;
+	position: absolute;
+	left: 47%;
+	top: 10px;
+}

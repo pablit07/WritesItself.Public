@@ -15,11 +15,13 @@ body {
 	background-color: black;
 
 	font-size: 13.5px;
-	font-family: Garamond, serif;
+	font-family: 'Conv_Foglihten-068', Garamond, serif;
 
 	color: #DEDEDE;
 }
-
+h1, h2, h3, h4, h5, h6, .toolbar, a.clear {
+	font-family: Garamond, serif;
+}
 h1
 {
 	font-size: 25px;
@@ -50,7 +52,7 @@ li
 
 #Background {
 	min-width: 1024px;
-	min-height: 768px;
+	min-height: 670px;
 	background-color: black;
 }
 
@@ -61,29 +63,6 @@ li
 #Background img.Breathing {
 	height: 100%;
 	width: 100%;
-}
-
-/* content */
-
-#container {
-	display: none;
-	background-color: black;
-	opacity: 0.86;
-
-	position: absolute;
-	left: 40%;
-
-	height: 50%;
-	width: 39%;
-	top: 25%;
-	left: 33%;
-	min-width: 200px;
-
-	padding: 10px;
-
-	color: white;
-
-	z-index: 3;
 }
 
 /* cloak */
@@ -182,3 +161,9 @@ li
 .glyphicon { background-image: url(../img/glyphicons-halflings-white.png);}
 .glyphicon.down { background-position: -312px -120px;}
 .glyphicon.up { background-position: -287px -120px;}
+
+.loading {
+	width: 43px;
+	height: 11px;
+	background-image: url(../img/loading.gif);
+}

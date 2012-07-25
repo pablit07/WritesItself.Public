@@ -126,7 +126,7 @@
 			var checkBoundary = function(pos) {
 
 				var walls = [
-					{ pos: {x:1000}},
+					{ pos: {x:800}},
 					{ pos: {x:-10}},
 					{ pos: {y:50}},
 					{ pos: {y:600}}

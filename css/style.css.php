@@ -17,7 +17,7 @@ header('Content-type: text/css');
   echo file_get_contents("playlist.css");
   echo file_get_contents("content.css");
   echo file_get_contents("contact.css");
-
+  echo file_get_contents("fonts.css");
   echo file_get_contents("magnify.css");
 
 

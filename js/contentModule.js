@@ -34,6 +34,15 @@ ContentController.prototype.attachEvents = function() {
 		self.isResizing = false;
 	});
 
+	$(window).on('resize', function() {
+		self.module.$el.css({
+			top: 70,
+			bottom: 70,
+			right: 32,
+			left: 6
+		});
+	});
+
 	this.moduleFrame.on('mousemove', function(e) {
 		if (self.isAdjusting) {
 
@@ -76,6 +85,23 @@ ContentController.prototype.addListener = function(args) {
 
 };
 
+ContentController.prototype.loadPage = function(url, pageOptions) {
+	url = "content/" + url + ".html";
+
+	pageOptions = pageOptions || {};
+
+	var options = $.extend({
+		type: "GET"
+	}, pageOptions);
+
+	if (!this.visible) {
+		this.visible = true;
+		this.module.$el.fadeIn(1000);
+	}
+
+	this.module.loadPage(url, options);
+}
+
 /* Module View */
 
 var ContentModule = function(el) {
@@ -95,11 +121,26 @@ var ContentModule = function(el) {
 
 
 // loads an absolute or relative url into the content module
-ContentModule.prototype.loadPage = function(url) {
+ContentModule.prototype.loadPage = function(url, options) {
 
-	var options = {};
+	var self = this;
 
-	this.body.load(url, options);
+	options = options || {};
+
+	this.$body.load(url, $.extend({
+			success: function() {
+				self.$body[0].scrollTop = 0;
+			}
+		},
+		options)
+	);
+
+	$.ajax(url, $.extend(options, {
+			success: function(data) {
+				console.info(data);
+			}
+		})
+	);
 };
 
 // accepts params: bottom, the new distance from bottom of the module to the toolbar,

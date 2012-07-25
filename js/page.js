@@ -84,8 +84,12 @@ Page.prototype.attachjPlayer = function($parent, $interface, $playlist) {
 
 	var options = {
 		songs: [
-			 "Writes Itself-Just One Look"
-			,"Writes Itself-Waiting"
+			 "Writes Itself - Just One Look"
+			,"Writes Itself - Waiting"
+			,"Writes Itself - After All"
+			,"Writes Itself - Bridge"
+			,"Writes Itself - Deep Waters"
+			,"Writes Itself - Deep waters Live"
 		]
 	};
 
@@ -134,7 +138,13 @@ Page.prototype.audio_playlist_clear = function() {
 	this.jPlayer.clearQ();
 }
 Page.prototype.audio_playlist_add = function(param) {
-	this.jPlayer.enqueue(param);
+	var name = param;
+	if (typeof param == 'object' && param.jquery) {
+		var name = param.data('file');
+	}
+
+	this.audio_playlist_open();
+	this.jPlayer.enqueue(name);
 }
 Page.prototype.bubble_pause = function() {
 	this.$Bubble.pause();
@@ -159,10 +169,15 @@ Page.prototype.attachDomEvents = function() {
 		.on('click', 'td.name', function() {
 			self.jPlayer.play(null, {index: $(this).closest("tr").data("index")});
 		})
+		.on('click', 'a.close', function() { self.audio_playlist_close(); })
 	;
 
+	$(".toolbar .banner").on('click', function() {
+		self.content_load("shows");
+	});
 
-	var $delegate = $('#container, #Bubble');
+
+	var $delegate = $('#ContentModule, #Bubble, .toolbar');
 
 	var self = this;
 
@@ -186,9 +201,22 @@ Page.prototype.runAction = function(action, $el, isFromHash) {
 
 Page.prototype.fadeInContent = function() {
 	setTimeout(function() {
-		//$("#container").fadeIn(1000);
-		$("div#cloak").fadeIn(1000);
+		$(".toolbar").fadeIn(1000);
 
 		
 	}, 1000);
 };
+
+Page.prototype.content_load = function(param) {
+
+	var page = param;
+	if (typeof param == 'object' && param.jquery) {
+		page = param.data('page');
+	}
+
+	this.cycleBreathingImage();
+
+	this.content.loadPage(page);
+};
+
+

@@ -26,9 +26,7 @@
 <div id="jPlayer" class="offscreen"></div>
 
 <div id="cloak" class="header toolbar">
-	<div class="fleft title">
-		<a class="middle" href="#"></a>
-	</div>
+
 	<ul class="fleft player">
 		<li>
 			<a class="middle prev" href="#"><span></span></a>
@@ -42,9 +40,7 @@
 		<li>
 			<a class="top lcd">
 			<div class="relative">
-				<input type="text" readonly="readonly">
-
-				</input>
+				<input type="text" readonly="readonly" />
 				<div class="time"></div>
 				<div class="name"></div>
 			</div>
@@ -57,10 +53,8 @@
 
 	<div class="fright banner">
 		<div class="relative">
-			<span class="glyphicon up"></span>
-			<span class="glyphicon down"></span>
 			<a class="middle">
-				<input type="text" readonly="readonly" value="Sign up for the mailing list"></input>
+				<input type="text" readonly="readonly" value="New Show Date! This Friday, 7/28"></input>
 			</a>
 		</div>
 	</div>
@@ -73,6 +67,7 @@
 		</table>
 	</div>
 	<div class="footer">
+		<a class="close" href="#"> </a>
 		<a class="clear" href="#">clear</a>
 	</div>
 </div>
@@ -119,7 +114,7 @@
 
 	<ul class="center contact">
 		<li>
-			<a class="middle" href="#">Contact Us</a>
+			<a class="middle" href="#" data-action="content_load" data-page="contact">Contact Us</a>
 		</li>
 	</ul>
 
@@ -145,7 +140,7 @@
 			</a>
 		</li>
 		<li>
-			<a class="middle" href="https://www.paypal.com" target="_blank">
+			<a class="middle" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MM6DJR2HRUK4Q" target="_blank">
 				<div class="icon pp"></div>
 			</a>
 		</li>
@@ -165,25 +160,14 @@
 	    	<nav>
 	    		<ul>
 
-				<li><a class="first" href="#">fans</a></li>
-				<li><a href="#">clubs</a></li>
-				<li><a href="#">artists</a></li>
-				<li><a href="#">promoters</a></li>
-				<li><a href="#">sponsers</a></li>
-				<li><a href="#">listeners</a>
-					<ul>
-						<li>
-							<a href="#">xxx </a>
-						</li>
-						<li>
-							<a href="#">xxx </a>
-						</li>
-						<li>
-							<a href="#">xxx </a>
-						</li>
-					</ul>
-				</li>
-				<li><a class="last" href="#">help wanted</a></li>
+					<li><a class="first" href="#" data-action="content_load" data-page="music">Music</a></li>
+					<li><a href="#" data-action="content_load" data-page="shows">Shows</a></li>
+					<li><a href="#" data-action="content_load" data-page="lyrics">Lyrics</a></li>
+					<li><a href="#" data-action="content_load" data-page="bio">Bio</a></li>
+					<li><a href="#" data-action="content_load" data-page="donate">Donate</a></li>
+					<li><a href="#" data-action="content_load" data-page="contact">Contact Us</a></li>
+
+				</ul>
 			</nav>
 	    </div>	
     </div>
@@ -193,9 +177,11 @@
 
 	<div id="ContentModule">
 		<div class="header gradient">
-			<a href="#">test page 1</a>
-			<a href="#">test page 2</a>
-			<span class="adjust">adjust</adjust>
+			<span class="adjust"> </span>
+		</div>
+
+		<div class="bodyBackground">
+
 		</div>
 
 		<div class="body">
@@ -203,39 +189,12 @@
 		</div>
 
 		<div class="footer gradient">
-			<span class="resize">resize</span>
+			<span class="resize"> </span>
 		</div>
 	</div>
 
 </div>
 
-
-	<div id="container">
-		<header>
-			<h1>Writes Itself</h1>
-		</header>
-		<div id="main" role="main">
-			<p>
-				Audio player test
-			</p>
-			<p>
-				<ul>
-					<li> <a href="#audio_play Writes Itself-Just One Look" data-file="Writes Itself-Just One Look" data-action="audio_play">Writes Itself-Just One Look</a> </li>
-					<li> <a href="#audio_play Writes Itself-Waiting" data-file="Writes Itself-Waiting" data-action="audio_play">Writes Itself-Waiting</a> </li>
-					<li> <a href="#audio_stop" data-action="audio_stop" data-action-two="animate_stop">stop.</a> </li>
-				</ul>
-			</p>
-
-			<p>
-				<a href="Sitemap.php">Site Map</a>
-			</p>
-
-		</div>
-		<footer>
-
-		</footer>
-	</div> <!--! end of #container -->
-</div>
 <script src="js/libs/jquery-1.7.2.min.js"></script>
 
 <script src="js/scripts.js.php"></script>

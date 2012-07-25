@@ -16,35 +16,122 @@
     right: 32px;
     bottom: 70px;
     color: #DEDEDE;
+
+    display: none;
 }
-#ContentModule .header { height: 24px; }
+#ContentModule .header {
+	height: 24px;
+	border-radius: 3px 3px 0 0;
+	color: black;
+	border: 1px solid #090909;
+}
+#ContentModule .header .adjust {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background-position: -14px -14px;
+}
+
+#ContentModule .bodyBackground {
+	background-color: black;
+    opacity: 0.89;
+
+    position: absolute;
+	top: 20px;
+	bottom: 24px;
+	left: 0;
+	right: 0;
+
+	padding: 0 10px;
+    border: 1px solid #090909;
+}
 #ContentModule .body {
 	position: absolute;
 	top: 20px;
-	bottom: 20px;
+	bottom: 24px;
 	left: 0;
 	right: 0;
-    background-color: black;
-    opacity: 0.89;
+
+    color: #fcfcfc;
+    font-size: 14px;
+
+    overflow: auto;
+
+    padding: 0 10px;
+
+    line-height: 20px;
 }
+
+#ContentModule .body a {
+	color: #9130EB;
+}
+
+#ContentModule .body a.play {
+	position: absolute;
+	left: 340px;
+}
+#ContentModule .body a.add {
+	position: absolute;
+	left: 377px;
+}
+#ContentModule .body a.save {
+	position: absolute;
+	left: 410px;
+}
+
 #ContentModule .footer {
 	position: absolute;
 	bottom: 0;
 	right: 0;
 	left: 0;
 	height: 24px;
+	border-radius: 0 0 3px 3px;
+	color: black;
+	border: 1px solid #090909;
 }
 #ContentModule .footer .resize {
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	bottom: 5px;
+	right: 5px;
+}
+#ContentModule .footer .resize,
+#ContentModule .header .adjust {
+	cursor: move;
+	background-image: url(../img/resize.png);
+	height: 14px;
+	width: 14px;
 }
 
 #ContentModule .gradient {
-	background-image: -moz-linear-gradient(top, #656565 33%, #333333 77%);
-	background-image: -webkit-linear-gradient(top, #656565 33%, #333333 77%);
-	background-image: -ms-linear-gradient(top, #656565 33%, #333333 77%);
-	background-image: -o-linear-gradient(top, #656565 33%, #333333 77%);
+	background-image: -moz-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -webkit-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -ms-linear-gradient(top, #656565 33%, #1A1A1A 77%);
+	background-image: -o-linear-gradient(top, #656565 33%, #1A1A1A 77%);
 	filter:
-		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#333333',GradientType=0 );
+		progid:DXImageTransform.Microsoft.gradient( startColorstr='#656565', endColorstr='#1A1A1A',GradientType=0 );
 }
+
+
+#ContentModule ul li {
+	display: block;
+	margin: 4px 0;
+	cursor: default;
+}
+
+#ContentModule h4 {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 15px 0;
+	text-indent: 3px;
+}
+#ContentModule h6 {
+	display: inline-block;
+	font-size: 14px;
+	background-color: #ccc;
+	color: black;
+	margin: 10px 0;
+	padding: 1px 5px;
+}
+
+
+

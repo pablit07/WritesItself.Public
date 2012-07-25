@@ -33,7 +33,7 @@ function addVarsToMessage($vars, $message) {
 $subject = "New Mailing List Contact - ".date("M j Y g:i:s A T",  $_SERVER['REQUEST_TIME']);
 
 //$to = "paul.kohlhoff@gmail.com";
-$to = "contactWritesItself@gmail.com";
+$to = "contact@writesitself.net";
 
 
 $message = "<h1>Add To Mailing List</h1><p>A new user has submitted the following information:</p>";

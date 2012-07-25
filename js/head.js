@@ -29,7 +29,7 @@ Page.prototype.preloadImages = function(args) {
 				listeners[i].onAfterPreloadImages({background: background});
 			}			
 		},
-		src: "img/backgrounds/breathing.png"
+		src: "img/backgrounds/breathing_small.png"
 	});
 }
 
